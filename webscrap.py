@@ -6,7 +6,7 @@ import csv
 email = input('Enter your email : ')
 pwd = getpass('Enter your password : ')
 
-driver = webdriver.Chrome('/Users/antoneev/documents/projects/chromedriver')
+driver = webdriver.Chrome('/Users/james/Downloads/netflixwrapped-main/netflixwrapped-main/chromedriver')
 
 driver.get('https://www.netflix.com/login')
 
@@ -31,7 +31,8 @@ time.sleep(2)
 #getting all results and saving into an array
 results = []
 i = 0
-while i <= 101:
+
+while i <= 14:
     #changes pg=0-n where n is 101 in this case
     link = 'https://www.netflix.com/api/shakti/vbb0b093a/viewingactivity?pg='+str(i)+'&pgSize=20&guid=NDDK7TQH7FCP3LVKZVQ6DTVRQI&_=1607439903768&authURL=1607439402662.%2FtRYmugjyc2c5ITNc7tzlAca54s%3D'
     driver.execute_script('window.open("{}","_blank");'.format(link))
@@ -45,7 +46,7 @@ while i <= 101:
 driver.quit()
 
 #saving results into a text file
-f= open("allresults.txt","w+")
+f= open("/Users/james/Downloads/netflixwrapped-main/netflixwrapped-main/allresults.txt","w+")
 for j in range(len(results)):
     f.write(results[j])
 f.close()   
